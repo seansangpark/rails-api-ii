@@ -15,12 +15,11 @@ class UserAuthenticator
       client_secret: ENV['GITHUB_CLIENT_SECRET']
     )
     res = client.exhange_code_for_token(code)
-    if code_valid?(res)
-    else
-    raise AuthenticationError
+    if res.error.present?
+      raise AuthenticationError
   end
 
-  attr_reader :code
   private
 
+  attr_reader :code
 end
