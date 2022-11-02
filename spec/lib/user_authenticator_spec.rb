@@ -52,7 +52,7 @@ RSpec.describe UserAuthenticator do
 
       it 'should reuse already registered user' do
         user = create :user, user_data
-        expect { subject }.not_to change { User.count }
+        expect { subject }.not_to (change { User.count })
         expect(authenticator.user).to eq(user)
       end
     end
