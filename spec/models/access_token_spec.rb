@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe AccessToken, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#validations' do
+    it 'should have valid factory' do
+    end
+
+    it 'should validate token' do
+    end
+  end
 end
