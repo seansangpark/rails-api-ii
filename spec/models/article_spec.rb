@@ -7,7 +7,7 @@ RSpec.describe Article, type: :model do
     let(:article) { build(:article) }
 
     it 'tests that factory is valid' do
-      expect(article).to be_valid # article.valid? == true
+      expect(article).to be_valid
     end
 
     it 'has an invalid title' do
