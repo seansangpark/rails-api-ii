@@ -31,6 +31,16 @@ RSpec.describe AccessTokensController, type: :controller do
     end
 
     context 'when invalid code provided' do
+      let(:github_error) do
+        double('Sawyer::Resource', error: 'bad_verification_code')
+      end
+
+      before do
+        allow_any_instance_of(Octokit::Client).to receive(
+          :exchange_code_for_token
+        ).and_return(github_error)
+      end
+
       subject { post :create, params: { code: 'invalid_code' } }
       it_behaves_like 'unauthorized_requests'
     end
