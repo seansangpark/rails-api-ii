@@ -1,4 +1,4 @@
 class AccessTokenSerializer
   include JSONAPI::Serializer
-  attributes 
+  attributes :id, :token
 end
