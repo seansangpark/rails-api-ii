@@ -1,6 +1,8 @@
 class AccessTokensController < ApplicationController
   def create
     authenticator = UserAuthenticator.new(params[:code])
+    if authenticator.perform
+          #return a token
     error = {
               "status" => "401",
               "source" => { "pointer" => "/code" },
