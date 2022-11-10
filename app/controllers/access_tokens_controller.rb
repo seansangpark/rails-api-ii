@@ -3,7 +3,6 @@ class AccessTokensController < ApplicationController
     authenticator = UserAuthenticator.new(params[:code])
     authenticator.perform
 
-    # render json: authenticator.access_token, status: :created
     result = serializer.new(authenticator.access_token)
     render json: result, status: :created
   end
