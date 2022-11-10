@@ -81,4 +81,21 @@ RSpec.describe AccessTokensController, type: :controller do
       end
     end
   end
+
+  describe 'DELETE #destroy' do
+    context 'when invalid request' do
+      it 'should return 403 status code' do
+        subject
+        expect(response).to have_http_status(:forbidden)
+      end
+
+      it 'should return proper error json' do
+        subject
+        expect(json['error']).to eq(authorization_error)
+      end
+    end
+
+    context 'when valid request' do
+    end
+  end
 end
