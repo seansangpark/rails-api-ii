@@ -10,4 +10,8 @@ class AccessTokensController < ApplicationController
   def serializer
     AccessTokenSerializer
   end
+
+  def destroy
+    raise AuthorizationError
+  end
 end
