@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ArticlesController < ApplicationController
+  skip_before_action :authorize!, only: %i[index show]
+
   include Paginable
 
   def index

@@ -9,10 +9,10 @@ class ApplicationController < ActionController::API
       'JsonapiErrorsHandler::Errors::NotFound'
   )
   rescue_from ::StandardError, with: ->(e) { handle_error(e) }
-
   rescue_from UserAuthenticator::AuthenticationError, with: :authentication_error
-
   rescue_from AuthorizationError, with: :authorization_error
+
+  before_action :authorize!
 
   private
 
