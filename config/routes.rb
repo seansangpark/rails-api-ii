@@ -6,5 +6,4 @@ Rails.application.routes.draw do
   delete 'logout', to: 'access_tokens#destroy'
 
   resources :articles, only: %i[index show create]
-
 end
