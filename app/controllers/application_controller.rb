@@ -16,6 +16,7 @@ class ApplicationController < ActionController::API
 
   private
 
+  
   def authorize!
     raise AuthorizationError unless current_user
   end
